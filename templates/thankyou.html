@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-4">Thank You {{name}}! </h1>
+            <p class="lead">We appreciate your business!</p>
+            <hr class="my-4">
+            <p>Click the button below to return to the home page.</p>
+            <a class="btn btn-primary btn-lg" href="{{ url_for('index')}}" role="button">Home</a>
+        </div>
+    </div>
+
+{% endblock %}
