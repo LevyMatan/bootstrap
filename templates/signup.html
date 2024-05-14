@@ -39,7 +39,9 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <p>{{ validate_username_error }}</p>
+          {% for validation_error in validate_username_error%}
+          <p>{{ validation_error }}</p>
+          {% endfor %}
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

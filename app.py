@@ -36,15 +36,18 @@ def validate_username(username):
     if the username meets the requirements, return False.
     otherwise, return an error message stating which requirement the username does not meet. 
     '''
+    error_list = []
     # check if username contains a lowercase letter
     if not any(char.islower() for char in username):
-        return 'Username must contain a lowercase letter.'
+        error_list.append('Username must contain a lowercase letter.')
     # check if username contains an uppercase letter
     if not any(char.isupper() for char in username):
-        return 'Username must contain an uppercase letter.'
+        error_list.append('Username must contain an uppercase letter.')
     # check if username ends with a number
     if not username[-1].isdigit():
-        return 'Username must end with a number.'
+        error_list.append('Username must end with a number.')
+        
+    return error_list
 
 
 @app.errorhandler(404)
