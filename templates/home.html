@@ -1,0 +1,62 @@
+{# HOME.HTML #}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
+     
+    <title>Home</title>
+</head>
+<body>
+    <h1>Home</h1>
+    <p>
+        {% if breed %}
+            The breed of the dog is {{ breed }}
+            Update it in the form below:
+        {% else %}
+            The breed of the dog is not known.
+            Please enter your breed:
+        {% endif %}
+    </p>
+
+    <div class="container">
+        <main class="form-signin w-100 m-auto">
+            <form method="POST">
+                {{ form.hidden_tag() }}
+                {{ form.breed.label }}{{ form.breed }}
+                <br>
+                {{ form.neutered.label }}{{ form.neutered }}
+                <br>
+                <div class="mb-3">
+                    <label class="form-label">{{ form.mood.label }}</label>
+                    {% for subfield in form.mood %}
+                        <div class="form-check">
+                            {{ subfield(class="form-check-input") }}
+                            {{ subfield.label(class="form-check-label") }}
+                        </div>
+                    {% endfor %}
+                </div>                <br>
+                {{ form.food_choice.label }}{{ form.food_choice }}
+                <br>
+                {{ form.feedback.label }}{{ form.feedback }}
+                <br>
+                {{ form.submit() }}
+            </form>
+        </main>
+    </div>
+
+    {% for flash_msg in get_flashed_messages() %}
+    <div class="container">
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Holy guacamole!</strong> {{flash_msg}}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </div>
+    {% endfor %}
+</body>
+</html>
