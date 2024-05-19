@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+
+    <div class="p-5 bg-light text-center">
+        <h1>Your puppy has been adopted?</h1>
+        <p>please remove it from our database</p>
+        <form method="POST">
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+                {{ form.id.label(class="form-control-label") }}
+                {{ form.id(class="form-control form-control-lg") }}
+                <br>
+                {{ form.submit(class="btn btn-primary") }}
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

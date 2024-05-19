@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+
+    <div class="p-5 bg-light text-center">
+        <h1>have a puppy that needs to be adopted?</h1>
+        <p>Add a new puppy to our database!</p>
+        <form method="POST">
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+                {{ form.name.label(class="form-control-label") }}
+                {{ form.name(class="form-control form-control-lg") }}
+                <br>
+                {{ form.breed.label(class="form-control-label") }}
+                {{ form.breed(class="form-control form-control-lg") }}
+                <br>
+                {{ form.age.label(class="form-control-label") }}
+                {{ form.age(class="form-control form-control-lg") }}
+                <br>
+                {{ form.submit(class="btn btn-primary") }}
+    </div>
+</div>
+
+{% endblock %}
